@@ -13,13 +13,17 @@ import AppsIcon from '@mui/icons-material/Apps'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import AddIcon from '@mui/icons-material/Add'
+import { getFirestore, collection } from 'firebase/firestore';
+import { useCollection } from "react-firebase-hooks/firestore"
+import { db } from '../firebase'
 
 function Sidebar() {
+  const [channels, loading, error] = useCollection(db.collection('rooms'))
   return (
     <SidebarContainer>
         <SidebarHeader>
             <SidebarInfo>
-                <h2>STAND_UP HQ</h2>
+                <h2>CODERZ-ZONE</h2>
                 <h3>
                     <FiberManualRecordIcon />
                     Jason Smith
@@ -40,7 +44,9 @@ function Sidebar() {
         <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
         <hr />
         <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
-
+        {channels?.docs.map(doc => (
+            <SidebarOption key={doc.id} id={doc.id} title={doc.data().name} />
+        ))}
     </SidebarContainer>
   )
 }
