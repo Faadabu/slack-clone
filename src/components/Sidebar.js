@@ -13,12 +13,13 @@ import AppsIcon from '@mui/icons-material/Apps'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import AddIcon from '@mui/icons-material/Add'
-import { getFirestore, collection } from 'firebase/firestore';
 import { useCollection } from "react-firebase-hooks/firestore"
-import { db } from '../firebase'
+import { db, auth } from '../firebase'
+import { useAuthState } from "react-firebase-hooks/auth"
 
 function Sidebar() {
-  const [channels, loading, error] = useCollection(db.collection('rooms'))
+  const [channels] = useCollection(db.collection('rooms'))
+  const [user] = useAuthState(auth)
   return (
     <SidebarContainer>
         <SidebarHeader>
@@ -26,7 +27,7 @@ function Sidebar() {
                 <h2>CODERZ-ZONE</h2>
                 <h3>
                     <FiberManualRecordIcon />
-                    Jason Smith
+                    {user.displayName}
                 </h3>
             </SidebarInfo>
             <CreateIcon />

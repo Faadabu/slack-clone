@@ -13,7 +13,7 @@ function ChatInput({channelName, channelId, chatRef}) {
         if(!channelId) {
             return false;
         }
-
+        console.log(user.photoURL)
         db.collection('rooms').doc(channelId).collection("messages").add({
             message: inputRef.current.value,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),

@@ -44,3 +44,15 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Screenshots
+
+![First Screenshot](./src/screenshots/Screenshot_1.png).
+
+![Second Screenshot](./src/screenshots/Screenshot_2.png).
+
+
+## Live Server
+
+https://slack-clone-7d45c.web.app
+

@@ -4,7 +4,7 @@ import styled from "styled-components"
 function Message({ message, timestamp, user, userImage }) {
   return (
     <MessageContainer>
-        <img src={userImage} alt="" />
+        <img src={userImage} alt="" referrerPolicy="no-referrer"/>
         <MessageInfo>
             <h4>
                 {user}{` `}
